@@ -21,7 +21,7 @@ node {
     stage ('Run container on Dev Server'){
         def dockerRun = 'docker run -p 8080:8080 -d -name my-app anexis/test_repo:1.0'
         sshagent(['dev-server']){
-            sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-31-236.eu-north-1.compute.amazonaws.com echo 'hello'"
+            sh 'ssh -o StrictHostKeyChecking=no  ec2user@172.31.11.79 echo hi'
         }
         }
 }
