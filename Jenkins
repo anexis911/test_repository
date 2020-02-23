@@ -15,7 +15,7 @@ node {
     }
     stage ('Docker push'){
         sh '''
-                docker push anexis/test_tomcat.latest
+                docker push python/test_tomcat.latest
                 '''
     }
 }
