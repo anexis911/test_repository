@@ -11,5 +11,6 @@ node {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
                     """
+                    }
     }
 }
