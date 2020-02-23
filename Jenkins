@@ -1,5 +1,10 @@
 node {
+
+    stage ('Git_Download'){
+        git credentialsId: 'git_creds', url: 'https://github.com/anexis911/test_repository'
+        }
     stage ('Docker_Build'){
       sh 'docker build -t python/test_tomcat.latest .'
     }
+    
 }
