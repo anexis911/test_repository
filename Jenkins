@@ -4,7 +4,7 @@ node {
         git credentialsId: 'git_creds', url: 'https://github.com/anexis911/test_repository'
         }
     stage ('Docker_Build'){
-      sh 'docker build -t python/test_tomcat.latest .'
+      sh 'docker build -t anexis/test_repo:1.0 .'
     }
     stage ('Docker Login'){
         withCredentials([usernamePassword(credentialsId: 'dockerhub_anexis', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
@@ -15,7 +15,7 @@ node {
     }
     stage ('Docker push'){
         sh '''
-                docker push anexis/test_tomcat.latest
+                docker push anexis/test_repo:1.0
                 '''
     }
 }
