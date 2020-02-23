@@ -1,3 +1,5 @@
 node {
     stage ('Docker_Build'){
       sh 'docker build -t python/test_tomcat.latest .'
+    }
+}
