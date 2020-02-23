@@ -7,8 +7,8 @@ node {
       sh 'docker build -t python/test_tomcat.latest .'
     }
     stage ('Docker Push'){
-        withCredentials([string(credentialsId: 'dockerhub_anexis', variable: 'dockerub_creds')]){
-        sh "docker login -u anexis -p ${dockerub_creds}"
+        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]){
+        sh "docker login -u anexis -p ${dockerHubPwd}"
         }
     }
 }
