@@ -13,4 +13,9 @@ node {
                     """
                     }
     }
+    stage ('Docker push'){
+        sh '''
+                docker push anexis/test_tomcat.latest
+                '''
+    }
 }
