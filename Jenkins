@@ -6,10 +6,10 @@ node {
     stage ('Docker_Build'){
       sh 'docker build -t python/test_tomcat.latest .'
     }
-    stage ('Docker Push'){
-        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]){
-        sh "docker login -u anexis -p ${dockerHubPwd}"
-        }
-        sh 'docker push python/test_tomcat.latest'
+    stage ('Docker Login'){
+        withCredentials([usernamePassword(credentialsId: 'dockerhub_anexis', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
     }
 }
