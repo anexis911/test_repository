@@ -21,7 +21,7 @@ node {
     stage ('Run container on Dev Server'){
        
         sshagent(credentials:['dev-server'], ignoreMissing:true){
-            sh 'ssh -o StrictHostKeyChecking=no  ec2user@172.31.11.79 echo hi'
+            sh 'ssh -o StrictHostKeyChecking=no  ec2-user@13.53.169.239 echo hi'
         }
         }
 }
